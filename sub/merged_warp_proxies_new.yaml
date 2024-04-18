@@ -1,0 +1,483 @@
+port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+dns:
+  enable: true
+  listen: :53
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+  - 223.5.5.5
+  - 8.8.8.8
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+  fallback:
+  - https://1.0.0.1/dns-query
+  - tls://dns.google
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+proxies:
+- name: WARP
+  type: wireguard
+  server: 162.159.192.1
+  port: 2408
+  ip: 172.16.0.2
+  ipv6: 2606:4700:110:87ad:b400:91:eadb:887f
+  private-key: wIC19yRRSJkhVJcE09Qo9bE3P3PIwS3yyqyUnjwNO34=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  udp: true
+  ip-version: ipv6-prefer
+  reserved: XiBe
+  remote-dns-resolve: true
+  dns:
+  - 1.1.1.1
+  - 8.8.8.8
+  dialer-proxy: WARP前置节点
+- name: United States_hysteria2_01
+  type: hysteria2
+  server: 74.63.233.74
+  port: 33445
+  password: dongtaiwang.com
+  alpn:
+  - h3
+  sni: www.bing.com
+  skip-cert-verify: true
+  up: 5 Mbps
+  down: 20 Mbps
+- name: Unknown_vmess_11
+  type: vmess
+  server: yh7.dtku41.xy
+  port: 8080
+  cipher: auto
+  uuid: d9c5ec6a-a8d8-4732-8447-56fbd2f93e96
+  alterId: 0
+  tls: false
+  skip-cert-verify: true
+  servername: concentrations-taxi-about-recognised.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: d9c5ec6a-a8d8-4732-8447-56fbd2f93e96-vm
+    headers:
+      host: concentrations-taxi-about-recognised.trycloudflare.com
+- name: Unknown_vmess_12
+  type: vmess
+  server: yh9.dtku41.xyz
+  port: 8080
+  cipher: auto
+  uuid: ef8c954e-014f-4b36-8273-9b5086afab34
+  alterId: 0
+  tls: false
+  skip-cert-verify: true
+  servername: hang-broke-john-neither.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: ef8c954e-014f-4b36-8273-9b5086afab34-vm
+    headers:
+      host: hang-broke-john-neither.trycloudflare.com
+- name: Unknown_vmess_13
+  type: vmess
+  server: yh1.dtku41.xyz
+  port: 8080
+  cipher: auto
+  uuid: 028c8131-9e3e-4836-94ac-ea7f24d4d05a
+  alterId: 0
+  tls: false
+  skip-cert-verify: true
+  servername: booty-pensions-scheduling-blogging.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: 028c8131-9e3e-4836-94ac-ea7f24d4d05a-vm
+    headers:
+      host: booty-pensions-scheduling-blogging.trycloudflare.com
+- name: Unknown_vmess_14
+  type: vmess
+  server: yh6.dtku41.xy
+  port: 8080
+  cipher: auto
+  uuid: 82cb93a3-65a9-4dac-a2a7-d997b6c26d6a
+  alterId: 0
+  tls: false
+  skip-cert-verify: true
+  servername: fantastic-doe-bids-ended.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: 82cb93a3-65a9-4dac-a2a7-d997b6c26d6a-vm
+    headers:
+      host: fantastic-doe-bids-ended.trycloudflare.com
+- name: United States_vless_21
+  type: vless
+  server: 109.104.152.101
+  port: 13982
+  uuid: 85beb960-236b-4634-81ce-6ad66652f928
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HjmsLPRaQqSqtdMMpIpmpoJOKhC0rAOUCHXnz0E89RE
+    short-id: 22f6b74f02cc88a6
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_vless_31
+  type: vless
+  server: 109.104.152.101
+  port: 13982
+  uuid: 85beb960-236b-4634-81ce-6ad66652f928
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HjmsLPRaQqSqtdMMpIpmpoJOKhC0rAOUCHXnz0E89RE
+    short-id: 22f6b74f02cc88a6
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_vless_41
+  type: vless
+  server: 109.104.152.101
+  port: 13982
+  uuid: 85beb960-236b-4634-81ce-6ad66652f928
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HjmsLPRaQqSqtdMMpIpmpoJOKhC0rAOUCHXnz0E89RE
+    short-id: 22f6b74f02cc88a6
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_vless_51
+  type: vless
+  server: 109.104.152.101
+  port: 13982
+  uuid: 85beb960-236b-4634-81ce-6ad66652f928
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HjmsLPRaQqSqtdMMpIpmpoJOKhC0rAOUCHXnz0E89RE
+    short-id: 22f6b74f02cc88a6
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_ss_61
+  type: ss
+  server: 109.104.152.186
+  port: 11223
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 7/bb9x3TJQ4Y5SRA/Al3OdwxIk4uf3Jg8N9wDQg+Uto=
+  smux:
+    enabled: true
+    protocol: smux
+    max-connections: 1
+    min-streams: 4
+    statistic: false
+    only-tcp: false
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_hysteria2_71
+  type: hysteria2
+  server: 109.104.152.89
+  port: 22441
+  password: dongtaiwang.com
+  alpn:
+  - h3
+  sni: www.bing.com
+  skip-cert-verify: true
+  up: 11 Mbps
+  down: 55 Mbps
+- name: United States_vless_81
+  type: vless
+  server: 109.104.152.101
+  port: 13982
+  uuid: 85beb960-236b-4634-81ce-6ad66652f928
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HjmsLPRaQqSqtdMMpIpmpoJOKhC0rAOUCHXnz0E89RE
+    short-id: 22f6b74f02cc88a6
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_ss_91
+  type: ss
+  server: 109.104.152.186
+  port: 11223
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 7/bb9x3TJQ4Y5SRA/Al3OdwxIk4uf3Jg8N9wDQg+Uto=
+  smux:
+    enabled: true
+    protocol: smux
+    max-connections: 1
+    min-streams: 4
+    statistic: false
+    only-tcp: false
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 11
+      down: 55
+- name: United States_shadowtls_1
+  type: ss
+  server: 109.104.152.186
+  port: 443
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 2mLw+aTguEUrvK/Jamxr4CY/RbLCL/MmfWJQ7c6bXe8=
+  plugin: shadow-tls
+  client-fingerprint: chrome
+  plugin-opts:
+    host: nijigen-works.jp
+    password: UcMMbVQBzIUAcdC12ju6lV9j3rjK3cAQiZoYCDk1h/g=
+    version: 3
+- name: United States_hy_0
+  type: hysteria
+  server: 108.181.5.133
+  port: 26022
+  ports: 26022
+  auth_str: dongtaiwang.com
+  up: 80
+  down: 100
+  fast-open: true
+  protocol: udp
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+- name: France_hy_1
+  type: hysteria
+  server: 62.210.243.131
+  port: 18702
+  ports: 18702
+  auth_str: dongtaiwang.com
+  up: 80
+  down: 100
+  fast-open: true
+  protocol: udp
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+- name: France_hy_2
+  type: hysteria
+  server: 62.210.243.131
+  port: 18702
+  ports: 18702
+  auth_str: dongtaiwang.com
+  up: 80
+  down: 100
+  fast-open: true
+  protocol: udp
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+- name: United States_hy_3
+  type: hysteria
+  server: 109.104.152.194
+  port: 58510
+  ports: 58510
+  auth_str: dongtaiwang.com
+  up: 80
+  down: 100
+  fast-open: true
+  protocol: udp
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+- name: United States_hy2_0
+  type: hysteria2
+  server: 104.192.224.141
+  port: 40391
+  password: dongtaiwang.com
+  fast-open: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: United States_hy2_1
+  type: hysteria2
+  server: 104.192.224.140
+  port: 40391
+  password: dongtaiwang.com
+  fast-open: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: United States_hy2_2
+  type: hysteria2
+  server: 104.192.224.141
+  port: 40391
+  password: dongtaiwang.com
+  fast-open: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: United States_hy2_3
+  type: hysteria2
+  server: 104.192.224.141
+  port: 40391
+  password: dongtaiwang.com
+  fast-open: true
+  sni: www.bing.com
+  skip-cert-verify: true
+proxy-groups:
+- name: 节点选择
+  type: select
+  proxies:
+  - WARP
+  - 自动选择
+  - 负载均衡
+  - 手动选择
+  - DIRECT
+- name: WARP前置节点
+  type: select
+  proxies:
+  - 自动选择
+  - 负载均衡
+  - 手动选择
+- name: 自动选择
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  proxies:
+  - United States_hysteria2_01
+  - Unknown_vmess_11
+  - Unknown_vmess_12
+  - Unknown_vmess_13
+  - Unknown_vmess_14
+  - United States_vless_21
+  - United States_vless_31
+  - United States_vless_41
+  - United States_vless_51
+  - United States_ss_61
+  - United States_hysteria2_71
+  - United States_vless_81
+  - United States_ss_91
+  - United States_shadowtls_1
+  - United States_hy_0
+  - France_hy_1
+  - France_hy_2
+  - United States_hy_3
+  - United States_hy2_0
+  - United States_hy2_1
+  - United States_hy2_2
+  - United States_hy2_3
+- name: 手动选择
+  type: select
+  proxies:
+  - United States_hysteria2_01
+  - Unknown_vmess_11
+  - Unknown_vmess_12
+  - Unknown_vmess_13
+  - Unknown_vmess_14
+  - United States_vless_21
+  - United States_vless_31
+  - United States_vless_41
+  - United States_vless_51
+  - United States_ss_61
+  - United States_hysteria2_71
+  - United States_vless_81
+  - United States_ss_91
+  - United States_shadowtls_1
+  - United States_hy_0
+  - France_hy_1
+  - France_hy_2
+  - United States_hy_3
+  - United States_hy2_0
+  - United States_hy2_1
+  - United States_hy2_2
+  - United States_hy2_3
+- name: 负载均衡
+  type: load-balance
+  proxies:
+  - United States_hysteria2_01
+  - Unknown_vmess_11
+  - Unknown_vmess_12
+  - Unknown_vmess_13
+  - Unknown_vmess_14
+  - United States_vless_21
+  - United States_vless_31
+  - United States_vless_41
+  - United States_vless_51
+  - United States_ss_61
+  - United States_hysteria2_71
+  - United States_vless_81
+  - United States_ss_91
+  - United States_shadowtls_1
+  - United States_hy_0
+  - France_hy_1
+  - France_hy_2
+  - United States_hy_3
+  - United States_hy2_0
+  - United States_hy2_1
+  - United States_hy2_2
+  - United States_hy2_3
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  strategy: round-robin
+rules:
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- GEOIP,LAN,DIRECT
+- GEOIP,CN,DIRECT
+- MATCH,节点选择

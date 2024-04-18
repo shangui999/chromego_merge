@@ -1,0 +1,4 @@
+PyYAML==6.0.1
+geoip2
+IP2Location
+requests
