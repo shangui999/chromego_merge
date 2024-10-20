@@ -1510,7 +1510,7 @@ proxies:
     path: github.com/Alvin9999
     headers:
       Host: ip13.6016725.xyz
-- name: United States_vmess_0100
+- name: None_vmess_0100
   type: vmess
   server: skk.moe
   port: 2095
@@ -3052,7 +3052,7 @@ proxies:
     path: github.com/Alvin9999
     headers:
       Host: ip17.6929198.xyz
-- name: None_vmess_297
+- name: United States_vmess_297
   type: vmess
   server: malaysia.com
   port: 2082
@@ -3411,11 +3411,11 @@ proxies:
     host: nijigen-works.jp
     password: YEudERP9ZstwNZpOWytH3Ds4sSEgj8GVZk7OQEGDEpo=
     version: 3
-- name: France_hy_0
+- name: Russia_hy_0
   type: hysteria
-  server: 62.210.8.63
-  port: 2345
-  ports: 2345
+  server: 46.17.43.223
+  port: 12311
+  ports: 12311
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -3604,7 +3604,7 @@ proxy-groups:
   - United States_vmess_097
   - None_vmess_098
   - United States_vmess_099
-  - United States_vmess_0100
+  - None_vmess_0100
   - None_vmess_0101
   - None_vmess_11
   - None_vmess_12
@@ -3706,7 +3706,7 @@ proxy-groups:
   - None_vmess_294
   - None_vmess_295
   - None_vmess_296
-  - None_vmess_297
+  - United States_vmess_297
   - None_vmess_298
   - None_vmess_299
   - None_vmess_2100
@@ -3728,7 +3728,7 @@ proxy-groups:
   - Russia_vless_81
   - Russia_vless_91
   - United States_shadowtls_1
-  - France_hy_0
+  - Russia_hy_0
   - Russia_hy_1
   - Russia_hy_2
   - Russia_hy_3
@@ -3841,7 +3841,7 @@ proxy-groups:
   - United States_vmess_097
   - None_vmess_098
   - United States_vmess_099
-  - United States_vmess_0100
+  - None_vmess_0100
   - None_vmess_0101
   - None_vmess_11
   - None_vmess_12
@@ -3943,7 +3943,7 @@ proxy-groups:
   - None_vmess_294
   - None_vmess_295
   - None_vmess_296
-  - None_vmess_297
+  - United States_vmess_297
   - None_vmess_298
   - None_vmess_299
   - None_vmess_2100
@@ -3965,7 +3965,7 @@ proxy-groups:
   - Russia_vless_81
   - Russia_vless_91
   - United States_shadowtls_1
-  - France_hy_0
+  - Russia_hy_0
   - Russia_hy_1
   - Russia_hy_2
   - Russia_hy_3
