@@ -1481,7 +1481,7 @@ proxies:
     path: github.com/Alvin9999
     headers:
       Host: ip14.6016725.xyz
-- name: None_vmess_097
+- name: United States_vmess_097
   type: vmess
   server: malaysia.com
   port: 2095
@@ -3430,8 +3430,8 @@ proxies:
 - name: Russia_hy_0
   type: hysteria
   server: 46.17.43.223
-  port: 23142
-  ports: 23142
+  port: 39655
+  ports: 40000-50000
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -3632,7 +3632,7 @@ proxy-groups:
   - None_vmess_094
   - United States_vmess_095
   - United States_vmess_096
-  - None_vmess_097
+  - United States_vmess_097
   - None_vmess_098
   - None_vmess_099
   - None_vmess_0100
@@ -3866,7 +3866,7 @@ proxy-groups:
   - None_vmess_094
   - United States_vmess_095
   - United States_vmess_096
-  - None_vmess_097
+  - United States_vmess_097
   - None_vmess_098
   - None_vmess_099
   - None_vmess_0100
@@ -4100,7 +4100,7 @@ proxy-groups:
   - None_vmess_094
   - United States_vmess_095
   - United States_vmess_096
-  - None_vmess_097
+  - United States_vmess_097
   - None_vmess_098
   - None_vmess_099
   - None_vmess_0100
