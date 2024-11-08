@@ -1,0 +1,43 @@
+name: Update IP Database
+
+on:
+  schedule:
+    - cron: "0 0 2 * *"  # 每月1日运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-ip-database:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget
+
+    - name: Download GeoLite2 Database
+      env:
+        MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+      run: |
+        # 下载并解压数据库
+        wget -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=${MAXMIND_LICENSE_KEY}&suffix=tar.gz"
+        tar -xzf GeoLite2-City.tar.gz --strip-components=1
+        # mv GeoLite2-City.mmdb ./  # 将数据库文件移到根目录
+        rm -f GeoLite2-City.tar.gz COPYRIGHT.txt LICENSE.txt   # 删除其余文件
+
+    - name: Commit and Push Updated Database to GitHub
+      run: |
+        if [[ -n "$(git status --porcelain)" ]]; then
+          echo "Changes detected in the repository."
+          git config core.ignorecase false
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Updated at $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
+        else
+          echo "No changes detected in the repository."
+        fi
