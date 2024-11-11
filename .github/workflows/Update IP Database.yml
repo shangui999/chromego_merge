@@ -20,7 +20,7 @@ jobs:
 
     - name: Download Database
       env:
-        ip2location_lite_token: ${{ secrets.IP2LOCATION_LITE_TOKEN }}
+        IP2LOCATION_LITE_TOKEN: ${{ secrets.IP2LOCATION_LITE_TOKEN }}
         MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
       run: |
         # 下载并解压数据库
@@ -29,7 +29,7 @@ jobs:
         # mv GeoLite2-City.mmdb ./  # 将数据库文件移到根目录
         rm -f GeoLite2-City.tar.gz COPYRIGHT.txt LICENSE.txt README.txt  # 删除其余文件
 
-        wget -O DB3LITEBIN.zip https://www.ip2location.com/download/?token=${ip2location_lite_token}&file=DB3LITEBIN
+        wget -O DB3LITEBIN.zip https://www.ip2location.com/download/?token=${IP2LOCATION_LITE_TOKEN}&file=DB3LITEBIN
         unzip -o DB3LITEBIN.zip
         rm -f DB3LITEBIN.zip *_LITE.TXT
         
