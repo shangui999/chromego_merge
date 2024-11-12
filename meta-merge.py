@@ -31,10 +31,10 @@ def process_clash(data, index):
     proxies = content.get('proxies', [])
     for i, proxy in enumerate(proxies):
         location = get_physical_location(proxy['server'])
-        print(location)
+        #print(location)
 
         proxy['name'] = f"{location}_{proxy['type']}_{index}{i+1}"
-        print(proxy)
+        #print(proxy)
 
     merged_proxies.extend(proxies)
 
@@ -292,8 +292,6 @@ merged_proxies = []
 # 处理 clash URLs
 print("processing clash URLs...")
 process_urls('./urls/clash_urls.txt', process_clash)
-
-
 
 # 处理 shadowtls URLs
 print("processing shadowtls URLs...")
