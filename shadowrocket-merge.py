@@ -7,6 +7,7 @@ import logging
 import geoip2.database
 import socket
 import re
+from get_location import get_physical_location
 
 # 提取节点
 def process_urls(url_file, processor):
@@ -23,23 +24,7 @@ def process_urls(url_file, processor):
                 logging.error(f"Error processing URL {url}: {e}")
     except Exception as e:
         logging.error(f"Error reading file {url_file}: {e}")
-def get_physical_location(address):
-    address = re.sub(':.*', '', address)  # 用正则表达式去除端口部分
-    try:
-        ip_address = socket.gethostbyname(address)
-    except socket.gaierror:
-        ip_address = address
 
-    try:
-        reader = geoip2.database.Reader('GeoLite2-City.mmdb')  # 这里的路径需要指向你自己的数据库文件
-        response = reader.city(ip_address)
-        country = response.country.name
-        city = response.city.name
-        #return f"{country}_{city}"
-        return f"{country}"
-    except geoip2.errors.AddressNotFoundError as e:
-        print(f"Error: {e}")
-        return "Unknown"
 #提取clash节点
 def process_clash(data, index):
             # 解析YAML格式的内容
@@ -62,8 +47,8 @@ def process_clash(data, index):
                     flow = proxy.get("flow", "")
                     publicKey = proxy.get('reality-opts', {}).get('public-key', '')
                     short_id = proxy.get('reality-opts', {}).get('short-id', '')
-                    fp = proxy.get("client-fingerprint", "")
-                    insecure = int(proxy.get("skip-cert-verify", 0))
+                    # fp = proxy.get("client-fingerprint", "")
+                    # insecure = int(proxy.get("skip-cert-verify", 0))
                     grpc_serviceName = proxy.get('grpc-opts', {}).get('grpc-service-name', '')
 
                     ws_path = proxy.get('ws-opts', {}).get('path', '')
@@ -76,7 +61,8 @@ def process_clash(data, index):
                         security = 'tls'
                     location = get_physical_location(server)
                     name = f"{location}_vless_{index}"
-                    vless_meta =  f"vless://{uuid}@{server}:{port}?security={security}&allowInsecure{insecure}&flow={flow}&type={network}&fp={fp}&pbk={publicKey}&sid={short_id}&sni={sni}&serviceName={grpc_serviceName}&path={ws_path}&host={ws_headers_host}#{name}"
+                    # vless_meta =  f"vless://{uuid}@{server}:{port}?security={security}&allowInsecure{insecure}&flow={flow}&type={network}&fp={fp}&pbk={publicKey}&sid={short_id}&sni={sni}&serviceName={grpc_serviceName}&path={ws_path}&host={ws_headers_host}#{name}"
+                    vless_meta =  f"vless://{uuid}@{server}:{port}?security={security}&flow={flow}&type={network}&pbk={publicKey}&sid={short_id}&sni={sni}&serviceName={grpc_serviceName}&path={ws_path}&host={ws_headers_host}#{name}"
 
                     merged_proxies.append(vless_meta)
 
@@ -97,7 +83,8 @@ def process_clash(data, index):
                     ws_headers_host = proxy.get('ws-opts', {}).get('headers', {}).get('Host', '')
                     location = get_physical_location(server)
                     name = f"{location}_vmess_{index}"
-                    vmess_meta =  f"vmess://{uuid}@{server}:{port}?security={security}&allowInsecure{insecure}&type={network}&fp={fp}&sni={sni}&path={ws_path}&host={ws_headers_host}#{name}"
+                    # vmess_meta =  f"vmess://{uuid}@{server}:{port}?security={security}&allowInsecure{insecure}&type={network}&fp={fp}&sni={sni}&path={ws_path}&host={ws_headers_host}#{name}"
+                    vmess_meta =  f"vmess://{uuid}@{server}:{port}?security={security}&type={network}&sni={sni}&path={ws_path}&host={ws_headers_host}#{name}"
 
                     merged_proxies.append(vmess_meta)
 
@@ -107,7 +94,7 @@ def process_clash(data, index):
                     uuid = proxy.get("uuid", "")
                     password = proxy.get("password", "")
                     sni = proxy.get("sni", "")
-                    insecure = int(proxy.get("skip-cert-verify", 0))
+                    # insecure = int(proxy.get("skip-cert-verify", 0))
                     udp_relay_mode = proxy.get("udp-relay-mode", "naive")
                     congestion = proxy.get("congestion-controller", "bbr")
                     alpn = proxy.get("alpn", [])[0] if proxy.get("alpn") and len(proxy["alpn"]) > 0 else None
@@ -324,24 +311,30 @@ def process_xray(data, index):
 merged_proxies = []
 
 # 处理 clash URLs
+print("Processing Clash URLs...")
 process_urls('./urls/clash_urls.txt', process_clash)
 
 # 处理 shadowtls URLs
 #process_urls('./urls/sb_urls.txt', process_sb)
 
 # 处理 naive URLs
+print("Processing Naive URLs...")
 process_urls('./urls/naiverproxy_urls.txt', process_naive)
 
 # 处理 hysteria URLs
+print("Processing Hysteria URLs...")
 process_urls('./urls/hysteria_urls.txt', process_hysteria)
 
 # 处理 hysteria2 URLs
+print("Processing Hysteria2 URLs...")
 process_urls('./urls/hysteria2_urls.txt', process_hysteria2)
 
 # 处理 xray URLs
+print("Processing Xray URLs...")
 process_urls('./urls/xray_urls.txt', process_xray)
 
 # 将结果写入文件
+print("Writing merged proxies to file...")
 merged_content = "\n".join(merged_proxies)
 
 try:
