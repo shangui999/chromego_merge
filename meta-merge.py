@@ -8,6 +8,7 @@ import geoip2.database
 import socket
 import re
 import requests
+from get_location import get_physical_location
 
 # 提取节点
 def process_urls(url_file, processor):
@@ -37,6 +38,7 @@ def process_clash(data, index):
 
     merged_proxies.extend(proxies)
 
+'''
 def get_physical_location(address):
     address = re.sub(':.*', '', address)  # 用正则表达式去除端口部分
     try:
@@ -57,6 +59,8 @@ def get_physical_location(address):
     except geoip2.errors.AddressNotFoundError as e:
         print(f"Error: {e}")
         return "Unknown"
+'''
+
 
 # 处理sb，待办
 def process_sb(data, index):
@@ -286,18 +290,25 @@ def update_warp_proxy_groups(config_warp_data, merged_proxies):
 merged_proxies = []
 
 # 处理 clash URLs
+print("processing clash URLs...")
 process_urls('./urls/clash_urls.txt', process_clash)
 
+
+
 # 处理 shadowtls URLs
+print("processing shadowtls URLs...")
 process_urls('./urls/sb_urls.txt', process_sb)
 
 # 处理 hysteria URLs
+print("processing hysteria URLs...")
 process_urls('./urls/hysteria_urls.txt', process_hysteria)
 
 # 处理 hysteria2 URLs
+print("processing hysteria2 URLs...")
 process_urls('./urls/hysteria2_urls.txt', process_hysteria2)
 
 # 处理 xray URLs
+print("processing xray URLs...")
 process_urls('./urls/xray_urls.txt', process_xray)
 
 # 读取普通的配置文件内容
@@ -322,14 +333,16 @@ else:
 
 # 更新自动选择和节点选择的proxies的name部分
 update_proxy_groups(config_data, merged_proxies)
-update_warp_proxy_groups(config_warp_data, merged_proxies)
+#update_warp_proxy_groups(config_warp_data, merged_proxies)
 
 # 将更新后的数据写入到一个YAML文件中，并指定编码格式为UTF-8
 with open('./sub/merged_proxies_new.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(config_data, file, sort_keys=False, allow_unicode=True)
 
+'''
 with open('./sub/merged_warp_proxies_new.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(config_warp_data, file, sort_keys=False, allow_unicode=True)
+'''
 
 print("聚合完成")
 
