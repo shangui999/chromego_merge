@@ -194,7 +194,7 @@ def process_hysteria2(data, index):
 def process_xray(data, index):
     try:
         json_data = json.loads(data)
-        print(json_data)
+        #print(json_data)
         # 处理 xray 数据
         protocol = json_data["outbounds"][0]["protocol"]
         #vless操作
