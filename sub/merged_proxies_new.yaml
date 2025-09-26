@@ -203,38 +203,6 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: FR_hy2_0
-  type: hysteria2
-  server: 104.168.10.176
-  port: 35205
-  password: dongtaiwang.com
-  fast-open: true
-  sni: apple.com
-  skip-cert-verify: true
-- name: FR_hy2_1
-  type: hysteria2
-  server: 104.168.10.176
-  port: 35205
-  password: dongtaiwang.com
-  fast-open: true
-  sni: apple.com
-  skip-cert-verify: true
-- name: FR_hy2_2
-  type: hysteria2
-  server: 104.168.10.176
-  port: 35205
-  password: dongtaiwang.com
-  fast-open: true
-  sni: apple.com
-  skip-cert-verify: true
-- name: FR_hy2_3
-  type: hysteria2
-  server: 104.168.10.176
-  port: 35205
-  password: dongtaiwang.com
-  fast-open: true
-  sni: apple.com
-  skip-cert-verify: true
 - name: -_reality_0
   type: vless
   server: 2001:bc8:32d7:302::13
@@ -283,10 +251,6 @@ proxy-groups:
   - NL_hy_1
   - NL_hy_2
   - NL_hy_3
-  - FR_hy2_0
-  - FR_hy2_1
-  - FR_hy2_2
-  - FR_hy2_3
   - -_reality_0
   - -_reality_3
 - name: 自动选择
@@ -309,10 +273,6 @@ proxy-groups:
   - NL_hy_1
   - NL_hy_2
   - NL_hy_3
-  - FR_hy2_0
-  - FR_hy2_1
-  - FR_hy2_2
-  - FR_hy2_3
   - -_reality_0
   - -_reality_3
 rules:
