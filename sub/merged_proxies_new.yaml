@@ -147,11 +147,11 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: NL_hy_0
+- name: INVALID IP ADDRESS_hy_0
   type: hysteria
-  server: 109.104.154.97
-  port: 48429
-  ports: 10000-20000
+  server: '[2604'
+  port: 6600
+  ports: 6600
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -161,11 +161,11 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: NL_hy_1
+- name: INVALID IP ADDRESS_hy_1
   type: hysteria
-  server: 109.104.154.97
-  port: 48429
-  ports: 10000-20000
+  server: '[2604'
+  port: 6600
+  ports: 6600
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -175,11 +175,11 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: NL_hy_2
+- name: INVALID IP ADDRESS_hy_2
   type: hysteria
-  server: 109.104.154.97
-  port: 48429
-  ports: 10000-20000
+  server: '[2604'
+  port: 6600
+  ports: 6600
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -189,11 +189,11 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: NL_hy_3
+- name: INVALID IP ADDRESS_hy_3
   type: hysteria
-  server: 109.104.154.97
-  port: 48429
-  ports: 10000-20000
+  server: '[2604'
+  port: 6600
+  ports: 6600
   auth_str: dongtaiwang.com
   up: 80
   down: 100
@@ -247,10 +247,10 @@ proxy-groups:
   - FR_hysteria_71
   - -_hysteria_81
   - -_hysteria_91
-  - NL_hy_0
-  - NL_hy_1
-  - NL_hy_2
-  - NL_hy_3
+  - INVALID IP ADDRESS_hy_0
+  - INVALID IP ADDRESS_hy_1
+  - INVALID IP ADDRESS_hy_2
+  - INVALID IP ADDRESS_hy_3
   - -_reality_0
   - -_reality_3
 - name: 自动选择
@@ -269,10 +269,10 @@ proxy-groups:
   - FR_hysteria_71
   - -_hysteria_81
   - -_hysteria_91
-  - NL_hy_0
-  - NL_hy_1
-  - NL_hy_2
-  - NL_hy_3
+  - INVALID IP ADDRESS_hy_0
+  - INVALID IP ADDRESS_hy_1
+  - INVALID IP ADDRESS_hy_2
+  - INVALID IP ADDRESS_hy_3
   - -_reality_0
   - -_reality_3
 rules:
