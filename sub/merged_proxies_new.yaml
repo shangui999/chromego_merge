@@ -25,11 +25,11 @@ dns:
     ipcidr:
     - 240.0.0.0/4
 proxies:
-- name: -_hysteria2_01
-  type: hysteria2
-  server: 2001:bc8:32d7:302::11
-  port: 20088
-  password: dongtaiwang.com
+- name: -_hysteria_01
+  type: hysteria
+  server: 2001:bc8:32d7:17b::2
+  port: 11000
+  auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
   alpn:
@@ -37,11 +37,11 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: -_hysteria2_11
-  type: hysteria2
-  server: 2001:bc8:32d7:302::11
-  port: 20088
-  password: dongtaiwang.com
+- name: -_hysteria_11
+  type: hysteria
+  server: 2001:bc8:32d7:17b::2
+  port: 11000
+  auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
   alpn:
@@ -62,11 +62,11 @@ proxies:
   reduce-rtt: true
   udp-relay-mode: native
   congestion-controller: bbr
-- name: -_hysteria2_31
-  type: hysteria2
-  server: 2001:bc8:32d7:302::17
-  port: 20088
-  password: dongtaiwang.com
+- name: -_hysteria_31
+  type: hysteria
+  server: 2001:bc8:32d7:17b::2
+  port: 11000
+  auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
   alpn:
@@ -87,11 +87,11 @@ proxies:
   reduce-rtt: true
   udp-relay-mode: native
   congestion-controller: bbr
-- name: -_hysteria2_51
-  type: hysteria2
-  server: 2001:bc8:32d7:302::17
-  port: 20088
-  password: dongtaiwang.com
+- name: -_hysteria_51
+  type: hysteria
+  server: 2001:bc8:32d7:17b::2
+  port: 11000
+  auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
   alpn:
@@ -237,12 +237,12 @@ proxy-groups:
   proxies:
   - 自动选择
   - DIRECT
-  - -_hysteria2_01
-  - -_hysteria2_11
+  - -_hysteria_01
+  - -_hysteria_11
   - -_tuic_21
-  - -_hysteria2_31
+  - -_hysteria_31
   - -_tuic_41
-  - -_hysteria2_51
+  - -_hysteria_51
   - -_hysteria_61
   - FR_hysteria_71
   - -_hysteria_81
@@ -259,12 +259,12 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - -_hysteria2_01
-  - -_hysteria2_11
+  - -_hysteria_01
+  - -_hysteria_11
   - -_tuic_21
-  - -_hysteria2_31
+  - -_hysteria_31
   - -_tuic_41
-  - -_hysteria2_51
+  - -_hysteria_51
   - -_hysteria_61
   - FR_hysteria_71
   - -_hysteria_81
