@@ -101,8 +101,8 @@ proxies:
   down: 55 Mbps
 - name: -_hysteria_61
   type: hysteria
-  server: 2001:bc8:32d7:158::4
-  port: 50011
+  server: 2001:bc8:32d7:902::3
+  port: 26691
   auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -113,8 +113,8 @@ proxies:
   down: 55 Mbps
 - name: FR_hysteria_71
   type: hysteria
-  server: 62.210.10.186
-  port: 50011
+  server: 62.210.196.68
+  port: 26691
   auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -123,10 +123,10 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: -_hysteria_81
+- name: FR_hysteria_81
   type: hysteria
-  server: 2001:bc8:32d7:158::2
-  port: 50011
+  server: 62.210.196.68
+  port: 26691
   auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -137,8 +137,8 @@ proxies:
   down: 55 Mbps
 - name: -_hysteria_91
   type: hysteria
-  server: 2001:bc8:32d7:158::4
-  port: 50011
+  server: 2001:bc8:32d7:902::3
+  port: 26691
   auth-str: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -245,7 +245,7 @@ proxy-groups:
   - -_hysteria_51
   - -_hysteria_61
   - FR_hysteria_71
-  - -_hysteria_81
+  - FR_hysteria_81
   - -_hysteria_91
   - INVALID IP ADDRESS_hy_0
   - INVALID IP ADDRESS_hy_1
@@ -267,7 +267,7 @@ proxy-groups:
   - -_hysteria_51
   - -_hysteria_61
   - FR_hysteria_71
-  - -_hysteria_81
+  - FR_hysteria_81
   - -_hysteria_91
   - INVALID IP ADDRESS_hy_0
   - INVALID IP ADDRESS_hy_1
